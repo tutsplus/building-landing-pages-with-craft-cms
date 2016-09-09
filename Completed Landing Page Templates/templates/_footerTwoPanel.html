@@ -1,0 +1,27 @@
+{% for entry in craft.entries.section('homePanels').type('footerTwo') %}
+
+<div id="footer">
+  <div class="container">
+    <div class="row">
+
+      <div class="footer-section col-md-1">
+        <a href="#" title="Home is where the heart is" rel="home"><img src='assets/images/flexible-logo-footer.png' class="logo-footer" alt="Home is where the heart is"></a>
+      </div><!--end footer-section-->
+      
+      <div class="footer-section col-md-8 col-sm-9 col-xs-12">
+        <p>{{entry.copyrightMessage}}</p>
+      </div><!--end footer-section-->
+          
+      <div class="footer-section col-md-3 col-xs-12">    
+        <div class="social copyright">
+        	{% for icon in entry.socialIcons %}
+          <a href="{{icon.socialMediaUrl}}" target="_blank"><i class="fa {{icon.fontAwesomeIcon}}"></i></a>
+	        {% endfor %}
+        </div><!--end social-->
+      </div><!--end col-md-3-->
+
+    </div><!--end row-->
+  </div><!--end container-->
+</div><!--end footer-->
+
+{% endfor %}

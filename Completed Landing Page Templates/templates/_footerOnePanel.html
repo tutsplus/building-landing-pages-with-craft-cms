@@ -1,0 +1,20 @@
+{% for entry in craft.entries.section('homePanels').type('footerOne') %}
+
+{% set heroImage = "" %}
+{% for asset in entry.heroImage %}
+	{% set heroImage = asset.url %}
+{% endfor %}
+
+  <section id="quote" class="marketing-action" style="background-image: url('{{heroImage}}');">
+    <div class="overlay">
+      <div class="text">
+         <h2>{{entry.title}}</h2>
+         <p class="description-image">
+          {{entry.description}}
+         </p>
+         <a href="{{entry.buttonUrl}}" class="btn btn-cta-primary btn-cta-buy" role="button">{{entry.buttonText}}</a>      
+      </div><!--end text-->
+    </div><!--end overlay-->
+  </section><!--end marketing-action-->
+
+{% endfor %}

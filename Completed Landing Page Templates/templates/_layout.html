@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=9, IE=edge" />
+  <meta name='robots' content='noindex,follow' />
+
+  <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700&subset=latin,devanagari,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' id='fontawesome-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?ver=4.4.1' type='text/css' media='all' />
+
+	{% includeCssFile "assets/css/bootstrap.min.css?ver=4.4.1" %}
+  {% includeCssFile "assets/css/style.css" %}
+     
+</head>
+  
+<body>
+			{% block content %}
+				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+			{% endblock %}
+
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.0'></script>
+
+  {% includeJsFile "assets/js/bootstrap.min.js" %}
+  {% includeJsFile "assets/js/jquery-mobile.js?ver=1.0" %}
+  {% includeJsFile "assets/js/main.js" %}
+
+</body>
+
+</html>

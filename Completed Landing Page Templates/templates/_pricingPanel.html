@@ -1,0 +1,37 @@
+<section id="plan">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>Simple Pricing</h2>
+      <p class="description">Choose what fits you best</p>
+    </div><!--end title-->
+  
+    <div class="row">
+
+    {% for entry in craft.entries.section('homePanels').type('pricing') %}
+
+      {% if loop.index is not divisibleby(2) %}
+      <div class="col-md-6">
+        <div class="row">
+      {% endif %}
+
+          <div class="price-table col-sm-6">
+            <i class="fa {{entry.fontAwesomeIcon | default('fa-arrow-down')}}"></i>
+            <h6>{{entry.title}}</h6>
+            <span class="dollar">{{entry.currency | default("$") }}</span>
+            <span class="price">{{entry.price}}</span>
+
+            {{entry.featureList}}
+          </div><!--price-table-->
+
+      {% if loop.index is divisibleby(2) %}
+        </div><!--end row-->
+      </div><!--end col-sm-6-->
+      {% endif %}
+    
+    {% endfor %}
+
+    </div><!--end row-->
+  </div><!--end container-->
+</section><!--end plan-->
